@@ -8,3 +8,6 @@ create table employee_payroll(
 	Salary float,
 	StartDate date
 	);
+
+--UC-3: Performing CRUD operations
+insert into employee_payroll values('Varun','125245','2016/03/01') ,('Hanif','13335','2018/01/05'),('Deeptimayee','525245','2019/03/01'),('Ameeja','541236','2016/11/29'),('Naveen','147853','2020/07/14');
