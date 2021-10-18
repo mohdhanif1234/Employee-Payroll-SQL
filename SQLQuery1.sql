@@ -28,3 +28,10 @@ select * from employee_payroll where StartDate between cast('2005-01-01' as date
 alter table employee_payroll add Gender char(1);
 update employee_payroll set Gender='M';
 update employee_payroll set Gender='F' where Id='1';
+
+--UC-7: Ability to find sum, average, min, max and number of male and female employees
+select SUM(Salary) as TotalSalary,Gender from employee_payroll group by Gender;
+select AVG(Salary) as AverageSalary from employee_payroll group by Gender;
+select count(Salary) as TotalSalary,Gender from employee_payroll group by Gender;
+select Min(Salary) as MinSalary,Gender from employee_payroll group by Gender;
+select Max(Salary) as MaxSalary,Gender from employee_payroll group by Gender;
