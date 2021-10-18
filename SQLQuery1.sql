@@ -3,11 +3,11 @@ create database payroll_service;
 
 --UC-2: Creating a table
 create table employee_payroll(
-	Id int identity(1,1) primary key,
-	Name varchar (200),
-	Salary float,
-	StartDate date
-	);
+Id int identity(1,1) primary key,
+Name varchar (200),
+Salary float,
+StartDate date
+);
 
 --UC-3: Performing CRUD operations
 insert into employee_payroll values
@@ -23,3 +23,8 @@ select * from employee_payroll;
 --UC-5: Retrieving specific data
 select Name,StartDate from employee_payroll where Name='Hanif';
 select * from employee_payroll where StartDate between cast('2005-01-01' as date) and getdate();
+
+--UC-6: Alter the table to add gender
+alter table employee_payroll add Gender char(1);
+update employee_payroll set Gender='M';
+update employee_payroll set Gender='F' where Id='1';
