@@ -52,3 +52,7 @@ update employee_payroll set NetPay = (BasicPay-Deduction);
 update employee_payroll set TaxablePay = '1000';
 update employee_payroll set IncomeTax = '200';
 select * from employee_payroll;
+
+--UC-10: Creating duplicate entries for a single person
+insert into employee_payroll(Name,BasicPay,StartDate,Gender,PhoneNumber,Department,Address,TaxablePay,Deduction,IncomeTax,NetPay) values('Terissa','525245','2018/03/01','F','7345787969','Sales','Chennai','1000','4000','200','522245');
+insert into employee_payroll(Name,BasicPay,StartDate,Gender,PhoneNumber,Department,Address,TaxablePay,Deduction,IncomeTax,NetPay) values('Terissa','525245','2018/03/01','F','7345787969','Marketing','Chennai','0','0','0','0');
