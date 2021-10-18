@@ -41,3 +41,14 @@ alter table employee_payroll add PhoneNumber bigint;
 alter table employee_payroll add Department varchar(250) not null default 'HR';
 alter table employee_payroll add Address varchar(250) default 'Bengaluru';
 select * from employee_payroll;
+
+--UC-9: Extending employee payroll
+Exec sp_rename 'employee_payroll.Salary', 'BasicPay';
+alter table employee_payroll add TaxablePay float, Deduction float,IncomeTax float,NetPay float;
+update employee_payroll set Deduction = '4000' where Department = 'HR';
+update employee_payroll set Deduction = '3000' where Department = 'Sales';
+update employee_payroll set Deduction = '2000' where Department = 'Customer Service';
+update employee_payroll set NetPay = (BasicPay-Deduction);
+update employee_payroll set TaxablePay = '1000';
+update employee_payroll set IncomeTax = '200';
+select * from employee_payroll;
